@@ -1,0 +1,33 @@
+{
+  "name": "calsync",
+  "version": "1.0.0",
+  "description": "Self-hosted one-way Google Calendar sync service backed by Supabase.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "node --check index.js && node --check routes/webhook.js && node --check services/syncService.js && node --check services/backfillService.js && node --check services/calendarService.js && node --check services/cleanupService.js && node --check services/googleAuth.js && node --check services/lifecycleService.js && node --check services/logger.js && node --check services/transformService.js && node --check services/webhookRenewalService.js && node --check scripts/authenticate.js && node --check scripts/registerWebhook.js && node --check scripts/testListEvents.js && node --check scripts/validateSetup.js",
+    "validate:setup": "node scripts/validateSetup.js"
+  },
+  "keywords": [
+    "calendar",
+    "google-calendar",
+    "supabase",
+    "sync"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "type": "commonjs",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.101.1",
+    "dotenv": "^17.4.0",
+    "express": "^5.2.1",
+    "googleapis": "^171.4.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}

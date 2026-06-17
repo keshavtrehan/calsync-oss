@@ -1,7 +1,6 @@
 require('dotenv').config({ quiet: true });
 
 const express = require('express');
-const path = require('path');
 const { createClient } = require('@supabase/supabase-js');
 const webhookRouter = require('./routes/webhook');
 const { handleSyncRuleChange } = require('./services/lifecycleService');
@@ -14,7 +13,6 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', webhookRouter);
 
 app.listen(PORT, () => {
